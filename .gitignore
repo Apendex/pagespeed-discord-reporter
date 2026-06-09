@@ -1,0 +1,8 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+pagespeed_insights_results.json
+pagespeed_insights_results.png
+image.png
+logo.png
