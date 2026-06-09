@@ -2,6 +2,7 @@ import os
 import json
 import requests
 import urllib.parse
+import subprocess
 from datetime import datetime
 from typing import Optional, Dict, Any
 from dotenv import load_dotenv
@@ -183,3 +184,12 @@ if __name__ == "__main__":
             save_results_to_json(all_results)
             
         print_mobile_and_desktop_values()
+
+        # Chain the next scripts
+        print("\n--- Starting Image Generation ---")
+        subprocess.run(["python", "generate_image.py"], check=True)
+        
+        print("\n--- Sending to Discord ---")
+        subprocess.run(["python", "discord.py"], check=True)
+        
+        print("\nWorkflow Complete!")
